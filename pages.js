@@ -1,3 +1,5 @@
+import HashesController from './hashes.js';
+
 export default [
         {
           content: '<h1><em>git.</em> wtf is it doing, anyway?</h1>',
@@ -12,12 +14,13 @@ export default [
         {
           hash: '#stupid',
           title: 'git == stupid content tracker',
-          content: '',
+          content: `<img src="./Linus_Torvalds.jpeg" />`,
         },
         {
           hash: '#hash',
           title: 'hashes',
-          content: '',
+          content: `<div class="love">cortana <span class="heart">loves</span> siri</div>`,
+          controller: HashesController,
         },
         {
           hash: '#file_system',
