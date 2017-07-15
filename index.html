@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header id="title"></header>
+    <section id="content"></section>
+
+    <script>
+      const pages = [
+        {
+          hash: '',
+          title: '',
+          content: '<h1><em>git.</em> wtf is it doing, anyway?</h1>',
+        },
+        {
+          hash: '#source_control',
+          title: 'source control',
+          content: `
+            <div>1. save your progress!</div>
+            <img src="save_screen.png alt="zelda save screen" />`,
+        }
+      ];
+
+      window.onload = () => {
+        showPage(getCurrentPage());
+      }
+
+      window.addEventListener('click', () => {
+        const pageNumber = (getCurrentPage() + 1) % pages.length;
+        location.hash = pages[pageNumber].hash;
+      })
+
+      window.addEventListener('hashchange', () => {
+        showPage(getCurrentPage());
+      })
+
+      function getCurrentPage() {
+        const currentPage = pages.findIndex(page => (page.hash === location.hash));
+        return currentPage || 0;
+      }
+
+      function showPage(pageNumber) {
+        const page = pages[pageNumber];
+        document.querySelector('#title').innerHTML = page.title;
+        document.querySelector('#content').innerHTML = page.content;
+      }
+    </script>
+  </body>
+</html>
