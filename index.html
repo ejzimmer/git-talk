@@ -10,13 +10,12 @@
     <script type="module">
       import pages from './pages.js';
 
-      console.log('running');
-
       window.onload = () => {
         showPage(getCurrentPage());
       }
 
       window.addEventListener('click', () => {
+        console.log('click event captured');
         const pageNumber = (getCurrentPage() + 1) % pages.length;
         location.hash = pages[pageNumber].hash || '';
       })

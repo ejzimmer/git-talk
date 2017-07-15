@@ -19,7 +19,13 @@ export default [
         {
           hash: '#hash',
           title: 'hashes',
-          content: `<div class="love">cortana <span class="heart">loves</span> siri</div>`,
+          content: `<div class="love">
+                      <div>cortana <span class="heart">loves</span> siri</div>
+                      <div> 0 1 0 0 1 </div>
+                      <div> 1 1 0 1 </div>
+                      <div> 2 1 1 </div>
+                      <div> 3 2 = <span class="highlight">32%</span></div>
+                    </div>`,
           controller: HashesController,
         },
         {

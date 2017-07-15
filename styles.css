@@ -2,16 +2,18 @@ body {
   background: #333;
   font-family: Courier New, Courier, monospace;
   color: #ddd;
-  margin: 30px;
-  height: 100vh;
+  padding: 30px;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: 40px;
+  margin: 0;
 }
 
 #content {
   display: flex;
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 header {
@@ -40,8 +42,50 @@ em {
   color: #0f8;
 }
 
+.highlight {
+  border: 2px solid #0f8;
+}
+
+.love {
+  margin: auto;
+  margin-top: 40px;
+}
+
+.love div {
+  text-align: center;
+  margin: 30px;
+}
+
+.love div:last-child {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.heart {
+  display: inline-block;
+  position: relative;
+}
+
 .heart::before, .heart::after {
   content: '';
+  position: absolute;
+  background-color: #f2d;
+  height: 120%;
   width: 100%;
-  background-color: palevioletred;
+  top: 66%;
+  z-index: -1;
+}
+
+.heart::before {
+  right: 50%;
+  transform: rotate(45deg);
+  transform-origin: right bottom;
+  border-radius: 50% 0 0 50%;
+}
+
+.heart::after {
+  left: 50%;
+  transform: rotate(-45deg);
+  transform-origin: left bottom;
+  border-radius: 0 50% 50% 0;
 }
