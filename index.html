@@ -15,10 +15,9 @@
       }
 
       window.addEventListener('click', () => {
-        console.log('click event captured');
         const pageNumber = (getCurrentPage() + 1) % pages.length;
         location.hash = pages[pageNumber].hash || '';
-      })
+      });
 
       window.addEventListener('hashchange', () => {
         showPage(getCurrentPage());
