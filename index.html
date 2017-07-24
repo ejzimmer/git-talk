@@ -10,8 +10,6 @@
     <script type="module">
       import pages from './pages.js';
 
-      console.log('running');
-
       window.onload = () => {
         showPage(getCurrentPage());
       }
@@ -19,7 +17,7 @@
       window.addEventListener('click', () => {
         const pageNumber = (getCurrentPage() + 1) % pages.length;
         location.hash = pages[pageNumber].hash || '';
-      })
+      });
 
       window.addEventListener('hashchange', () => {
         showPage(getCurrentPage());

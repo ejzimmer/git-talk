@@ -1,4 +1,5 @@
 import HashesController from './hashes.js';
+import BlobsController from './blobs-and-trees.js';
 
 export default [
         {
@@ -19,13 +20,30 @@ export default [
         {
           hash: '#hash',
           title: 'hashes',
-          content: `<div class="love">cortana <span class="heart">loves</span> siri</div>`,
+          content: `<div class="love">
+                      <div>cortana <span class="heart">loves</span> siri</div>
+                      <div> 0 1 0 0 1 </div>
+                      <div> 1 1 0 1 </div>
+                      <div> 2 1 1 </div>
+                      <div> 3 2 = <span class="highlight">32%</span></div>
+                    </div>`,
           controller: HashesController,
         },
         {
           hash: '#file_system',
           title: 'blobs & trees',
-          content: '',
+          content: `<div class="blobs-and-trees">
+                      <div class="directory-tree">
+                        <div class="directory" id="root">my-project/</div>
+                        <div class="file">|__index.html</div>
+                        <div class="file">|__index.js</div>
+                        <div class="directory">|__images/</div>
+                        <div class="file">&nbsp;&nbsp;|__cats.gif</div>
+                        <div class="file">&nbsp;&nbsp;|__more-cats.gif</div>
+                      </div>
+                    </div>
+                    <div class="directory-listing"></div>`,
+          controller: BlobsController,
         },
         {
           hash:'#working_area',
