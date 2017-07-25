@@ -1,6 +1,6 @@
-import HashesController from './hashes.js';
-import BlobsController from './blobs-and-trees.js';
-import RepoController from './repo-working-area.js';
+import BlobsController from './controllers/blobs-and-trees.js';
+import RepoController from './controllers/repo-working-area.js';
+import SHA1Controller from './controllers/sha1.js';
 
 export default [
         {
@@ -28,67 +28,10 @@ export default [
                       <div> 2 1 1 </div>
                       <div> 3 2 = <span class="highlight">32%</span></div>
                     </div>`,
-          controller: HashesController,
         },
         {
-          hash: '#file_system',
-          title: 'blobs & trees',
-          content: `<div class="blobs-and-trees">
-                      <div class="directory-tree">
-                        <div class="directory" id="root">my-project/</div>
-                        <div class="file">|__index.html</div>
-                        <div class="file">|__index.js</div>
-                        <div class="directory">|__images/</div>
-                        <div class="file">&nbsp;&nbsp;|__cats.gif</div>
-                        <div class="file">&nbsp;&nbsp;|__more-cats.gif</div>
-                      </div>
-                    </div>
-                    <div class="directory-listing"></div>`,
-          controller: BlobsController,
+          hash: '#sha1',
+          title: 'SHA1',
+          controller: SHA1Controller,
         },
-        {
-          hash:'#working_area',
-          title: 'the working area',
-          content: '',
-        },
-        {
-          hash: '#commits',
-          title: 'commits',
-          content: '',
-        },
-        {
-          hash: '#staging',
-          title: 'the staging area',
-          content: '',
-        },
-        {
-          hash: '#branches',
-          title: 'branches & merging',
-          content: '',
-        },
-        {
-          hash: '#stash',
-          title: 'the stash',
-          content: '',
-        },
-        {
-          hash: '#remotes',
-          title: 'remotes',
-          content: '',
-        },
-        {
-          hash: '#undoing',
-          title: 'undoing stuff',
-          content: '',
-        },
-        {
-          hash: '#rebases',
-          title: 'rewriting history',
-          content: '',
-        },
-        {
-          hash: '#resources',
-          title: 'resources',
-          content: '',
-        }
       ]; 
