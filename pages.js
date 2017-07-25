@@ -16,8 +16,6 @@ export default [
         {
           hash: '#repo',
           title: 'working area & repo',
-          content: `<div id="terminal">&gt;&nbsp;</div>
-                    <div class="folder" id="folder"></div>`,
           controller: RepoController,
         },
         {

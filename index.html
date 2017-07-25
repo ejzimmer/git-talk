@@ -41,7 +41,7 @@
         }
 
         document.querySelector('#title').innerHTML = page.title;
-        document.querySelector('#content').innerHTML = page.content;
+        document.querySelector('#content').innerHTML = page.content || page.controller.getTemplate();
 
         if (page.controller) {
           const controller = new page.controller();
