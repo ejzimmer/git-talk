@@ -1,5 +1,6 @@
 import HashesController from './hashes.js';
 import BlobsController from './blobs-and-trees.js';
+import RepoController from './repo-working-area.js';
 
 export default [
         {
@@ -13,9 +14,11 @@ export default [
             <img src="save_screen.png alt="zelda save screen" />`,
         },
         {
-          hash: '#stupid',
-          title: 'git == stupid content tracker',
-          content: `<img src="./Linus_Torvalds.jpeg" />`,
+          hash: '#repo',
+          title: 'working area & repo',
+          content: `<div id="terminal">&gt;&nbsp;</div>
+                    <div class="folder" id="folder"></div>`,
+          controller: RepoController,
         },
         {
           hash: '#hash',

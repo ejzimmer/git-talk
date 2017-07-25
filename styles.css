@@ -188,3 +188,7 @@ button.clear {
   transform: rotate(-45deg);
   transform-origin: right;
 }
+
+.folder {
+  background-image: url('./finder.png');
+}
