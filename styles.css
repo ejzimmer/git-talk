@@ -328,3 +328,7 @@ button.clear {
   top: 13px;
   left: -11px;
 }
+
+#hashes span.same {
+  color: #f2d;
+}
