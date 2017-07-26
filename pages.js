@@ -1,6 +1,7 @@
 import BlobsController from './controllers/blobs-and-trees.js';
 import RepoController from './controllers/repo-working-area.js';
 import SHA1Controller from './controllers/sha1.js';
+import SourceControlController from './controllers/source-control.js';
 
 export default [
         {
@@ -9,9 +10,7 @@ export default [
         {
           hash: '#source_control',
           title: 'source control',
-          content: `
-            <div>1. save your progress!</div>
-            <img src="save_screen.png alt="zelda save screen" />`,
+          controller: SourceControlController,
         },
         {
           hash: '#repo',
@@ -33,5 +32,19 @@ export default [
           hash: '#sha1',
           title: 'SHA1',
           controller: SHA1Controller,
+        },
+        {
+          hash: '#objects',
+          title: 'git objects',
+          content: `<div class="objects-grid">
+                      <div class="blob"></div>
+                      <div>blob</div>
+                      <div class="tree"></div>
+                      <div>tree</div>
+                      <div class="commit"></div>
+                      <div>commit</div>
+                      <div class="tag"></div>
+                      <div>tag</div>
+                    </div>`,
         },
       ]; 

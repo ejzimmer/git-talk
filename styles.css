@@ -47,6 +47,14 @@ em {
   color: #0f8;
 }
 
+img {
+  width: 100%;
+}
+
+ol {
+  margin-left: 50px;
+}
+
 .highlight {
   border: 2px solid #0f8;
 }
@@ -331,4 +339,145 @@ button.clear {
 
 #hashes span.same {
   color: #f2d;
+}
+
+.objects-grid {
+  display: grid;
+  grid-template: 180px 180px / 1fr 1fr 1fr 1fr;
+  justify-items: start;
+  align-items: end;
+}
+
+.blob, .tree, .commit, .tag {
+  justify-self: end;
+  margin-right: 20px;
+}
+
+.blob {
+  position: relative;
+  height: 60px;
+  width: 150px;
+}
+
+.blob, .blob::before, .blob::after {
+  background-color: #0f8;
+  border-radius: 500px;
+}
+
+.blob::before, .blob::after {
+  content: '';
+  position: absolute;
+  border-color: #333;
+  border-bottom-style: solid;
+}
+
+.blob::before {
+  display: block;
+  width: 80px;
+  height: 80px;
+  bottom: 15px;
+  right: 20px;
+  transform: rotate(-110deg);
+}
+
+.blob::after {
+  width: 40px;
+  height: 40px;
+  bottom: 35px;
+  left: 25px;
+  transform: rotate(125deg);
+}
+
+.tree {
+    width: 100px;
+    height: 100px;
+    background:
+      radial-gradient(circle 10px at -20% 50%,transparent,transparent 50px,#888888 50px),
+      radial-gradient(circle 10px at 120% 50%,transparent,transparent 50px,#888888 50px);
+    background-size: 50px 100px, 50px 100px;
+    background-position:0 0,100% 0;
+    background-repeat:no-repeat;
+    position: relative;
+}
+
+.tree::before, .tree::after {
+  content: '';
+  display: block;
+  background-color: #0f8;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.tree::before {
+  width: 80px;
+  height: 80px;
+  top: -50%;
+  right: -20px;
+  border-color: #333;
+  border-top-style: solid;
+  z-index: 1;
+}
+
+.tree::after {
+  width: 100px;
+  height: 100px;
+  top: -75%;
+  left: -20px;
+}
+
+.commit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 10px #f2d;
+  background-color: #0f8;
+  position: relative;
+  margin-right: 50px;
+}
+
+.commit::before, .commit::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  background-color: #f2d;
+  top: calc(50% - 5px);
+}
+
+.commit::before {
+  left: -39px;
+}
+.commit::after {
+  right: -39px;
+}
+
+.tag {
+  width: 100px;
+  height: 60px;
+  background-color: #f2d;
+  position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.tag::before, .tag::after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.tag::before {
+  border: 30px solid transparent;
+  border-right-color: #f2d;
+  left: -60px;
+}
+
+.tag::after {
+  border-radius: 5px;
+  background-color: #ddd;
+  width: 80px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
 }
