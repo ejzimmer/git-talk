@@ -1,7 +1,7 @@
 export default class BranchesController {
 
   constructor() {
-    document.getElementById('content').addEventListener('click', this.showBranches);
+    document.getElementById('content').addEventListener('click', this.showBranches, { once: true });
   }
 
   showBranches(event) {

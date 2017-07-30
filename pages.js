@@ -1,4 +1,3 @@
-import BlobsController from './controllers/blobs-and-trees.js';
 import RepoController from './controllers/repo-working-area.js';
 import SHA1Controller from './controllers/sha1.js';
 import SourceControlController from './controllers/source-control.js';
