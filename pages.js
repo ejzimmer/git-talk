@@ -2,6 +2,8 @@ import BlobsController from './controllers/blobs-and-trees.js';
 import RepoController from './controllers/repo-working-area.js';
 import SHA1Controller from './controllers/sha1.js';
 import SourceControlController from './controllers/source-control.js';
+import CheckoutController from './controllers/checkout.js';
+import BranchesController from './controllers/branches.js';
 
 export default [
         {
@@ -47,4 +49,24 @@ export default [
                       <div>tag</div>
                     </div>`,
         },
+        {
+          hash: '#initial-commit',
+          title: 'initial commit',
+          content: '<img src="initial-commit.png" />',
+        },
+        {
+          hash: '#second-commit',
+          title: 'second commit',
+          content: '<img src="second-commit.png" />',
+        },
+        {
+          hash: '#checkout',
+          title: 'checkout',
+          controller: CheckoutController,
+        },
+        {
+          hash: '#branches',
+          title: 'branches',
+          controller: BranchesController,
+        }
       ]; 

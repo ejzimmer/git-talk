@@ -481,3 +481,85 @@ button.clear {
   top: 10px;
   left: 10px;
 }
+
+.one-branch.commits {
+  margin-left: 30%;
+}
+
+.commits {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 6px solid #f2d;
+  position: relative;
+  padding: 40px;
+  flex-grow: 1;
+}
+
+.commits > div::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid #f2d;
+  background-color: #0f8;
+  position: absolute;
+  left: -24px;
+}
+
+.commits > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.commits > div.highlight {
+  border: 1px solid #0f8;
+}
+
+.tag.head {
+  background-color: #0f8;
+  transform: rotate(180deg);
+  position: absolute;
+  left: -160px;
+}
+.tag.head::before {
+  border-right-color: #0f8;
+}
+.tag.head::after {
+  content: 'HEAD';
+  transform: rotate(180deg);
+  color: #333;
+  font-size: 30px;
+  text-align: center;
+}
+
+.commits > div.me {
+  color: #0f8;
+}
+.commits > div.sue {
+  color: #f2d;
+}
+
+.dino-branches {
+  display: flex;
+}
+
+.co-workers {
+  display: flex;
+  width: 33%;
+}
+
+.dino-branches img {
+  margin: auto;
+  margin-right: 40px;
+}
+
+.separate-branches {
+  display: flex;
+}
+.not-so-big {
+  max-width: 500px;
+}
