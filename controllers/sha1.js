@@ -5,10 +5,12 @@ export default class SHA1Controller {
   constructor() {
     this.hashes = [];
 
+    this.boundHandleEnter = this.handleEnter.bind(this);
+
     document.querySelector('#plaintext').addEventListener('click', (event) => event.stopPropagation());
     document.querySelector('#sha1').addEventListener('click', this.calculateSHA.bind(this));
-    document.querySelector('body').addEventListener('keypress', this.handleEnter.bind(this));
-    document.querySelector('#clear-hashes').addEventListener('click', this.clearHashes.bind(this));
+    document.querySelector('body').addEventListener('keypress', this.boundHandleEnter);
+    document.querySelector('#clear-listener').addEventListener('click', this.clearHashes.bind(this));
 
   }
 
@@ -60,9 +62,7 @@ export default class SHA1Controller {
   }
   
   clearHashes(event) {
-    event.stopPropagation();
-    this.hashes = [];
-    document.querySelector('#hashes').innerHTML = '';
+    document.querySelector('body').removeEventListener('keypress', this.boundHandleEnter);
   }
 
   static getTemplate() {
@@ -77,7 +77,7 @@ export default class SHA1Controller {
         <input type="text" id="plaintext" /><button id="sha1">Calculate SHA1</button>
       </div>
       <div id="hashes"></div>
-      <button class="clear" id="clear-hashes">X</button>
+      <button class="clear" id="clear-listener">X</button>
     </div>`;
   }
 }

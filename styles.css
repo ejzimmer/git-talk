@@ -55,6 +55,26 @@ ol {
   margin-left: 50px;
 }
 
+.disclaimer {
+  animation: appear linear 2s forwards;
+  margin: auto;
+  font-size: 3em;
+  border: 5px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0;
+}
+
+@keyframes appear {
+  20% { 
+    opacity: 1;
+    box-shadow: 0 10px 70px 0 #ddd;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .highlight {
   border: 2px solid #0f8;
 }
@@ -488,7 +508,7 @@ button.clear {
 
 .commits {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
   border-left: 6px solid #f2d;
   position: relative;

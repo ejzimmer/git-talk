@@ -9,6 +9,10 @@ export default [
           content: '<h1><em>git.</em> wtf is it doing, anyway?</h1>',
         },
         {
+          hash: '#disclaimer',
+          content: '<div class="disclaimer">DISCLAIMER</div>'
+        },
+        {
           hash: '#source_control',
           title: 'source control',
           controller: SourceControlController,
@@ -35,18 +39,11 @@ export default [
           controller: SHA1Controller,
         },
         {
-          hash: '#objects',
-          title: 'git objects',
-          content: `<div class="objects-grid">
-                      <div class="blob"></div>
-                      <div>blob</div>
-                      <div class="tree"></div>
-                      <div>tree</div>
-                      <div class="commit"></div>
-                      <div>commit</div>
-                      <div class="tag"></div>
-                      <div>tag</div>
-                    </div>`,
+          hash: '#commit',
+          title: 'git commit',
+          content: `<div id="terminal" contenteditable="true" 
+                    onclick="(function (event) { event.stopPropagation() })(event)">&gt;&nbsp;</div>
+                    <img src="some-work.png" />`,
         },
         {
           hash: '#initial-commit',

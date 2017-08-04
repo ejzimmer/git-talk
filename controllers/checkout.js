@@ -35,10 +35,10 @@ export default class CheckoutController {
     return `
       <div id="terminal">&gt;&nbsp;</div>
       <div class="one-branch commits">
-        <div><div class="tag head"></div>3a7a468</div>
+        <div>3a7a468</div>
         <div>4be1402</div>
         <div>88c1232</div>
-        <div>8359ed6</div>
+        <div><div class="tag head"></div>8359ed6</div>
       </div>`;
   }
 }
