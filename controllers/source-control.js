@@ -1,18 +1,17 @@
 export default class SourceControlController {
   
   constructor() {
-    document.getElementById('collaborate').style.display = 'none';
     document.getElementById('content').addEventListener('click', this.nextItem.bind(this), { once: true });
   }
 
   nextItem(event) {
     event.stopPropagation();
-    document.getElementById('save').style.display = 'none';
-    document.getElementById('collaborate').style.display = 'list-item';
+    document.getElementById('save').style.top = '-1000px';
+    document.getElementById('collaborate').style.top = 0;
   }
 
   static getTemplate() {
-    return `<ol>
+    return `<ol class="source-control">
               <li id="save">
                 save your progress
                 <img src="saved_games.jpg" />

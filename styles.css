@@ -55,28 +55,28 @@ ol {
   margin-left: 50px;
 }
 
-.disclaimer {
-  animation: appear linear 2s forwards;
-  margin: auto;
-  font-size: 3em;
-  border: 5px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  opacity: 0;
-}
-
-@keyframes appear {
-  20% { 
-    opacity: 1;
-    box-shadow: 0 10px 70px 0 #ddd;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .highlight {
   border: 2px solid #0f8;
+}
+
+li img {
+  margin-top: 40px;
+}
+
+ol.source-control {
+  position: relative;
+}
+
+li#save {
+  top: 0;
+  position: absolute;
+  transition: top 1s ease-in;
+}
+
+li#collaborate {
+  top: 1000px;
+  position: absolute;
+  transition: top 1s ease-out;
 }
 
 .love {

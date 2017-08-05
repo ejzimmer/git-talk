@@ -9,17 +9,11 @@ export default [
           content: '<h1><em>git.</em> wtf is it doing, anyway?</h1>',
         },
         {
-          hash: '#disclaimer',
-          content: '<div class="disclaimer">DISCLAIMER</div>'
-        },
-        {
           hash: '#source_control',
-          title: 'source control',
           controller: SourceControlController,
         },
         {
           hash: '#repo',
-          title: 'working area & repo',
           controller: RepoController,
         },
         {
