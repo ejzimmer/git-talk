@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header id="title"></header>
     <section id="content"></section>
 
     <script type="module">
@@ -30,17 +29,6 @@
 
       function showPage(pageNumber) {
         const page = pages[pageNumber];
-
-        const titleElement = document.querySelector('#title');
-        if (page.title) {
-          titleElement.innerHTML = page.title;
-          titleElement.style.display = 'block';
-        } else {
-          titleElement.innerHTML = '';
-          titleElement.style.display = 'none';
-        }
-
-        document.querySelector('#title').innerHTML = page.title;
         document.querySelector('#content').innerHTML = page.content || page.controller.getTemplate();
 
         if (page.controller) {

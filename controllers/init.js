@@ -1,12 +1,14 @@
 export default class RepoController {
   constructor() {
     this.terminal = document.getElementById('terminal');
-    this.terminal.contentEditable = true;
 
     this.terminal.addEventListener('click', (event) => {
       event.stopPropagation();
     });
     this.terminal.addEventListener('keypress', this.gitInit.bind(this));
+
+    this.folder = document.getElementById('folder');
+    setTimeout(() => folder.style.opacity = 1);
   }
 
   gitInit(event) {
@@ -17,7 +19,6 @@ export default class RepoController {
       this.repo = document.getElementById('repo');
       this.repo.style.display = 'block';
       
-      this.folder = document.getElementById('folder');
       this.folder.addEventListener('click', this.highlightRepo.bind(this), { once: true });
     }
   }
@@ -39,7 +40,7 @@ export default class RepoController {
   }
 
   static getTemplate() {
-    return `<div id="terminal">&gt;&nbsp;</div>
+    return `<div id="terminal" contenteditable="true">&gt;&nbsp;</div>
             <div class="folder" id="folder">
               <div class="folder-label label" id="folder-label">working area</div>
               <div id="repo" class="repo"></div>

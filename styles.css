@@ -19,27 +19,7 @@ body {
   flex-grow: 1;
   flex-direction: column;
   overflow-y: auto;
-}
-
-header {
-  font-size: 60px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-header::after {
-  content: '';
-  background-image: linear-gradient(to right, #ddd,#333);
-  display: block;
-  width: 100%;
-  height: 4px;
-  margin-top: 15px;
-}
-
-h1 {
-  font-size: 80px;
-  margin: auto;
-  text-align: center;
+  position: relative;
 }
 
 em {
@@ -57,6 +37,9 @@ ol {
 
 .highlight {
   border: 2px solid #0f8;
+}
+.highlight-pink {
+  border: 2px solid #f2d;
 }
 
 li img {
@@ -79,157 +62,17 @@ li#collaborate {
   transition: top 1s ease-out;
 }
 
-.love {
-  margin: auto;
-  margin-top: 40px;
-}
-
-.love div {
-  text-align: center;
-  margin: 30px;
-}
-
-.love div:last-child {
-  text-align: right;
-  margin-right: 30px;
-}
-
-.heart {
-  display: inline-block;
-  position: relative;
-}
-
-.heart::before, .heart::after {
-  content: '';
-  position: absolute;
-  background-color: #f2d;
-  height: 120%;
-  width: 100%;
-  top: 66%;
-  z-index: -1;
-}
-
-.heart::before {
-  right: 50%;
-  transform: rotate(45deg);
-  transform-origin: right bottom;
-  border-radius: 50% 0 0 50%;
-}
-
-.heart::after {
-  left: 50%;
-  transform: rotate(-45deg);
-  transform-origin: left bottom;
-  border-radius: 0 50% 50% 0;
-}
-
-input {
-  color: #ddd;
-  font-size: 40px;
-  padding: 5px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid currentColor;
-  outline: none;
-}
-
-button {
-  color: #0f8;
-  font-size: 30px;
-  padding: 15px;
-  background: transparent;
-  border: 1px solid currentColor;
-  outline: none;
-  cursor: pointer;
-}
-
-.sha1 {
-  display: flex;
-  flex-direction: column;
-}
-
-.calculate-hash {
-  display: flex;
-  width: 100%;
-}
-
-.calculate-hash input {
-  flex-grow: 1;
-  margin-right: 20px;
-}
-
-button.clear {
-  border: none;
-  padding: 10px;
-  color: #222;
-  align-self: flex-end;
-}
-
-.blobs-and-trees {
-  display: grid;
-  grid-auto-columns: 33% 66%;
-}
-
-.directory-tree {
-  background-color: #ddd;
-  border: 3px double grey;
-  color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-}
-
-.directory-listing {
-  border-top: 3px solid #ddd;
-  position: relative;
-  padding: 35px;
-  background-image: 
-    linear-gradient(to bottom,#ddd 50%, transparent 90%), 
-    linear-gradient(to bottom, #ddd 50%, transparent 90%);
-  background-size: 3px 100%;
-  background-position: 0 0, 100% 0;
-  background-repeat: no-repeat;
-}
-
-.files {
-  display: grid;
-  grid-template-columns: 20% 40% 40%;
-}
-
-.directory-listing::before {
-  content: '';
-  border: 3px solid #ddd;
-  border-top-color: #333;
-  border-left-color: #333;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: -3px;
-  left: 0;
-  background-color: #333;
-}
-
-.directory-listing::after {
-  content: '';
-  border-top: 3px solid #ddd;
-  width: 48px;
-  position: absolute;
-  top: -3px;
-  left: -12px;
-  transform: rotate(-45deg);
-  transform-origin: right;
-}
-
 .folder {
   display: flex;
-  background-image: url('./finder.png');
+  background-image: url('images/finder.png');
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 20px;
   padding-top: 63%;
   height: 0;
   position: relative;
+  opacity: 0;
+  transition: opacity 2s ease-in;
 }
 
 .folder::before {
@@ -269,13 +112,43 @@ button.clear {
   transform: rotate(-45deg);
 }
 
+.terminal {
+  font-family: 'Monaco';
+}
+.response {
+  font-family: 'Monaco';
+  font-size: .66em;
+}
+
+.terminal .ls {
+  display: flex;
+  justify-content: space-between;
+}
+.terminal .dir, .untracked-files {
+  color: #f2d;
+}
+.tracked-files {
+  color: #0f8;
+}
+
+.prompt {
+  position: relative;
+  margin-left: 1em;
+}
+.prompt::before {
+  color: #0f8;
+  content: '>';
+  position: relative;
+  left: -1em;
+}
+
 .label {
   font-family: 'arial black';
 }
 
 .repo {
   display: none;
-  background-image: url('git-folder.png'); 
+  background-image: url('images/git-folder.png'); 
   background-repeat: no-repeat;
   position: absolute;
   left: 20px;
@@ -320,266 +193,44 @@ button.clear {
   margin-right: 10px;
 }
 
-.sha1 li {
+.hashes {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: hidden;
 }
 
-.sha1 li span {
-  width: 40%;
-  margin-bottom: 20px;
+.hashes .terminal {
+  flex: 1 1 auto;
+  overflow-y: auto;
 }
 
-.sha1 li span:first-of-type {
-  text-align: right;
-}
-
-.sha1 .arrow {
-  display: block;
-  height: 30px;
-  width: 30px;
-  border-width: 4px 4px 0 0;
-  border-color: #f2d;
-  border-style: solid;
-  transform: rotate(45deg);
+.images {
   position: relative;
+  flex: 0 0 auto;
 }
-
-.sha1 .arrow::before {
-  content: '';
-  display: block;
-  width: 50px;
-  border-bottom: 4px solid #f2d;
-  transform: rotate(-45deg);
+.images img:not(:first-child) {
   position: absolute;
-  top: 13px;
-  left: -11px;
+  top: 0;
+  left: 0;
 }
-
-#hashes span.same {
-  color: #f2d;
+.slide-in {
+  margin-top: -100%;
+  transition: margin-top 1s ease-out;
 }
-
-.objects-grid {
-  display: grid;
-  grid-template: 180px 180px / 1fr 1fr 1fr 1fr;
-  justify-items: start;
-  align-items: end;
+.fade-image {
+  transition: opacity 1s ease-in-out;
 }
-
-.blob, .tree, .commit, .tag {
-  justify-self: end;
-  margin-right: 20px;
+.disappear {
+  animation: 1s disappear forwards;
 }
-
-.blob {
-  position: relative;
-  height: 60px;
-  width: 150px;
-}
-
-.blob, .blob::before, .blob::after {
-  background-color: #0f8;
-  border-radius: 500px;
-}
-
-.blob::before, .blob::after {
-  content: '';
-  position: absolute;
-  border-color: #333;
-  border-bottom-style: solid;
-}
-
-.blob::before {
-  display: block;
-  width: 80px;
-  height: 80px;
-  bottom: 15px;
-  right: 20px;
-  transform: rotate(-110deg);
-}
-
-.blob::after {
-  width: 40px;
-  height: 40px;
-  bottom: 35px;
-  left: 25px;
-  transform: rotate(125deg);
-}
-
-.tree {
-    width: 100px;
-    height: 100px;
-    background:
-      radial-gradient(circle 10px at -20% 50%,transparent,transparent 50px,#888888 50px),
-      radial-gradient(circle 10px at 120% 50%,transparent,transparent 50px,#888888 50px);
-    background-size: 50px 100px, 50px 100px;
-    background-position:0 0,100% 0;
-    background-repeat:no-repeat;
-    position: relative;
-}
-
-.tree::before, .tree::after {
-  content: '';
-  display: block;
-  background-color: #0f8;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.tree::before {
-  width: 80px;
-  height: 80px;
-  top: -50%;
-  right: -20px;
-  border-color: #333;
-  border-top-style: solid;
-  z-index: 1;
-}
-
-.tree::after {
-  width: 100px;
-  height: 100px;
-  top: -75%;
-  left: -20px;
-}
-
-.commit {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: solid 10px #f2d;
-  background-color: #0f8;
-  position: relative;
-  margin-right: 50px;
-}
-
-.commit::before, .commit::after {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 10px;
-  position: absolute;
-  background-color: #f2d;
-  top: calc(50% - 5px);
-}
-
-.commit::before {
-  left: -39px;
-}
-.commit::after {
-  right: -39px;
-}
-
-.tag {
-  width: 100px;
-  height: 60px;
-  background-color: #f2d;
-  position: relative;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.tag::before, .tag::after {
-  content: '';
-  display: block;
-  position: absolute;
-}
-
-.tag::before {
-  border: 30px solid transparent;
-  border-right-color: #f2d;
-  left: -60px;
-}
-
-.tag::after {
-  border-radius: 5px;
-  background-color: #ddd;
-  width: 80px;
-  height: 40px;
-  top: 10px;
-  left: 10px;
-}
-
-.one-branch.commits {
-  margin-left: 30%;
-}
-
-.commits {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  border-left: 6px solid #f2d;
-  position: relative;
-  padding: 40px;
-  flex-grow: 1;
-}
-
-.commits > div::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 6px solid #f2d;
-  background-color: #0f8;
-  position: absolute;
-  left: -24px;
-}
-
-.commits > div {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  width: fit-content;
-}
-
-.commits > div.highlight {
-  border: 1px solid #0f8;
-}
-
-.tag.head {
-  background-color: #0f8;
-  transform: rotate(180deg);
-  position: absolute;
-  left: -160px;
-}
-.tag.head::before {
-  border-right-color: #0f8;
-}
-.tag.head::after {
-  content: 'HEAD';
-  transform: rotate(180deg);
-  color: #333;
-  font-size: 30px;
-  text-align: center;
-}
-
-.commits > div.me {
-  color: #0f8;
-}
-.commits > div.sue {
-  color: #f2d;
-}
-
-.dino-branches {
-  display: flex;
-}
-
-.co-workers {
-  display: flex;
-  width: 33%;
-}
-
-.dino-branches img {
-  margin: auto;
-  margin-right: 40px;
-}
-
-.separate-branches {
-  display: flex;
-}
-.not-so-big {
-  max-width: 500px;
+@keyframes disappear {
+  from {
+    height: 100%;
+    width: 100%;
+  }
+  to {
+    height: 25%;
+    width: 25%;
+  }
 }

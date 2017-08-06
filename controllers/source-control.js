@@ -8,17 +8,30 @@ export default class SourceControlController {
     event.stopPropagation();
     document.getElementById('save').style.top = '-1000px';
     document.getElementById('collaborate').style.top = 0;
+
+    document.getElementById('content').addEventListener('click', this.nextPage.bind(this), { once: true });
+  }
+
+  nextPage(event) {
+    event.stopPropagation();
+
+    const target = event.target;
+    document.getElementById('collaborate').style.top = '-1000px';
+
+    setTimeout(() => {
+      document.getElementById('content').click()
+    }, 1000);
   }
 
   static getTemplate() {
     return `<ol class="source-control">
               <li id="save">
                 save your progress
-                <img src="saved_games.jpg" />
+                <img src="images/saved_games.jpg" />
               </li>
               <li id="collaborate">
                 collaborate with others
-                <img src="messy-directory.png" />
+                <img src="images/messy-directory.png" />
               </li>
             </ol>`;
   }

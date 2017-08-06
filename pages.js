@@ -1,8 +1,9 @@
-import RepoController from './controllers/repo-working-area.js';
-import SHA1Controller from './controllers/sha1.js';
 import SourceControlController from './controllers/source-control.js';
+import InitController from './controllers/init.js';
+import AddController from './controllers/add.js';
+import HashesController from './controllers/hashes.js';
+import CommitController from './controllers/commit.js';
 import CheckoutController from './controllers/checkout.js';
-import BranchesController from './controllers/branches.js';
 
 export default [
         {
@@ -14,49 +15,22 @@ export default [
         },
         {
           hash: '#repo',
-          controller: RepoController,
+          controller: InitController,
         },
         {
-          hash: '#hash',
-          title: 'hashes',
-          content: `<div class="love">
-                      <div>cortana <span class="heart">loves</span> siri</div>
-                      <div> 0 1 0 0 1 </div>
-                      <div> 1 1 0 1 </div>
-                      <div> 2 1 1 </div>
-                      <div> 3 2 = <span class="highlight">32%</span></div>
-                    </div>`,
+          hash: '#add',
+          controller: AddController,
         },
         {
-          hash: '#sha1',
-          title: 'SHA1',
-          controller: SHA1Controller,
+          hash: '#hashes',
+          controller: HashesController,
         },
         {
           hash: '#commit',
-          title: 'git commit',
-          content: `<div id="terminal" contenteditable="true" 
-                    onclick="(function (event) { event.stopPropagation() })(event)">&gt;&nbsp;</div>
-                    <img src="some-work.png" />`,
-        },
-        {
-          hash: '#initial-commit',
-          title: 'initial commit',
-          content: '<img src="initial-commit.png" />',
-        },
-        {
-          hash: '#second-commit',
-          title: 'second commit',
-          content: '<img src="second-commit.png" />',
+          controller: CommitController,
         },
         {
           hash: '#checkout',
-          title: 'checkout',
           controller: CheckoutController,
-        },
-        {
-          hash: '#branches',
-          title: 'branches',
-          controller: BranchesController,
         }
       ]; 
