@@ -47,7 +47,7 @@ index.html`);
   }
 
   gitStatus() {
-    this.imageContainer.classList.add('disappear');    
+    document.querySelector('.images').classList.add('disappear');    
     this.terminal.echo(`
 On branch master
 Changes to be committed:
@@ -58,9 +58,12 @@ Changes to be committed:
   }
 
   show(id) {
-    const fadeOutImages = document.querySelectorAll(`img:not([id='${id}'])`);
-    fadeOutImages.forEach(img => img.classList.add('fade-out'));
+    const lastImage = document.querySelector('.fade-in, .slide-down');
+    lastImage.classList.remove('fade-in');
+    lastImage.classList.remove('slide-down');
+    lastImage.classList.add('fade-out');
 
+    document.getElementById(id).classList.remove('hiding');
     document.getElementById(id).classList.add('fade-in');
   }
 

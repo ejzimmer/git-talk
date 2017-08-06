@@ -6,6 +6,22 @@ export default class Checkout {
     this.keyEvents = {
       'git checkout -b': this.checkout.bind(this),
     };
+
+    document.getElementById('content').addEventListener('click', this.showRefs, { once: true });
+  }
+
+  showRefs(event) {
+    event.stopPropagation();
+    const refs = document.getElementById('refs');
+    refs.classList.add('fade-in');
+
+    document.getElementById('content').addEventListener('click', this.showHead, { once: true });
+  }
+
+  showHead(event) {
+    event.stopPropagation();
+    document.getElementById('head').classList.add('fade-in');
+
     this.terminal = new Terminal(this.keyEvents);
   }
 
@@ -15,7 +31,10 @@ export default class Checkout {
   }
 
   static getTemplate() {
-    return `<div class="terminal"></div>
-            <img id="image" class="slide-up-ready" src="images/new-branch.png" />`;
+    return `<div class="images">
+              <img id="refs" class="hiding" src="images/new-branch.png" />
+              <img id="head" class="hiding" src="images/new-branch-head.png" />
+            </div>
+            <div class="terminal"></div>`;
   }
 }

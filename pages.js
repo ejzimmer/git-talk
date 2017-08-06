@@ -11,8 +11,8 @@ export default [
           content: '<h1><em>git.</em> wtf is it doing, anyway?</h1>',
         },
         {
-          hash: '#source_control',
-          controller: SourceControlController,
+          hash: '#disclaimer',
+          content: '<div class="disclaimer">DISCLAIMER</div>',
         },
         {
           hash: '#repo',

@@ -52,7 +52,7 @@ initial commit`);
   }
 
   slideImageIn(id) {
-    const image = document.getElementById(id).classList.add('slide-in-animation');
+    document.getElementById(id).classList.add('slide-up-animation');
   }
 
   static getTemplate() {
@@ -60,8 +60,8 @@ initial commit`);
     <div>
       <div class="terminal"></div>
       <div id="images" class="images">
-        <img id="after-commit" class="slide-in-ready" src="images/after-commit.png" />
-        <img id="refs" class="slide-in-ready" src="images/refs.png" />
+        <img id="after-commit" class="slide-up-ready" src="images/after-commit.png" />
+        <img id="refs" class="slide-up-ready" src="images/refs.png" />
       </div>
     </div>  
     <button class="show-button" id="show-pic-button">+</button>`;
