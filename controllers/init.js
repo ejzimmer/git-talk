@@ -1,27 +1,22 @@
+import Terminal from '../terminal.js';
+
 export default class RepoController {
   constructor() {
-    this.terminal = document.getElementById('terminal');
+    this.keyEvents = {
+      'git init': this.gitInit.bind(this),
+    }
+    this.terminal = new Terminal(this.keyEvents);
 
-    this.terminal.addEventListener('click', (event) => {
-      event.stopPropagation();
-    });
-    this.terminal.addEventListener('keypress', this.gitInit.bind(this));
-
+    this.repo = document.getElementById('repo');
     this.folder = document.getElementById('folder');
-    setTimeout(() => folder.style.opacity = 1);
   }
 
   gitInit(event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      this.terminal.contentEditable = false;
-      
-      this.repo = document.getElementById('repo');
-      this.repo.style.display = 'block';
-      
-      this.folder.addEventListener('click', this.highlightRepo.bind(this), { once: true });
-    }
+    this.repo.classList.add('bounce-in');
+    document.getElementById('folder').addEventListener('click', this.highlightRepo.bind(this), { once: true });
+    document.querySelector('.prompt').contentEditable = false;
   }
+
 
   highlightRepo(event) {
     event.stopPropagation();
@@ -40,8 +35,8 @@ export default class RepoController {
   }
 
   static getTemplate() {
-    return `<div id="terminal" contenteditable="true">&gt;&nbsp;</div>
-            <div class="folder" id="folder">
+    return `<div class="terminal"></div>
+            <div class="folder fade-in" id="folder">
               <div class="folder-label label" id="folder-label">working area</div>
               <div id="repo" class="repo"></div>
               <div class="repo-label label" id="repo-label">repository</div>

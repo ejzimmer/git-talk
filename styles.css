@@ -120,11 +120,7 @@ li#collaborate {
   font-size: .66em;
 }
 
-.terminal .ls {
-  display: flex;
-  justify-content: space-between;
-}
-.terminal .dir, .untracked-files {
+.terminal .untracked-files {
   color: #f2d;
 }
 .tracked-files {
@@ -147,7 +143,7 @@ li#collaborate {
 }
 
 .repo {
-  display: none;
+  opacity: 0;
   background-image: url('images/git-folder.png'); 
   background-repeat: no-repeat;
   position: absolute;
@@ -159,18 +155,18 @@ li#collaborate {
 
 .repo::before {
   content: ''; 
-  display: none;
+  opacity: 0;
   top: 0;
   left: 0;
   position: absolute;
   height: 100%;
   width: 100%;
   background-color: #f2d;
-  opacity: 0.25;
+  transition: opacity 250ms ease-out;
 }
 
 .repo.colour-in::before {
-  display: block;
+  opacity: .25;
 }
 
 .repo-label {
@@ -214,13 +210,6 @@ li#collaborate {
   top: 0;
   left: 0;
 }
-.slide-in {
-  margin-top: -100%;
-  transition: margin-top 1s ease-out;
-}
-.fade-image {
-  transition: opacity 1s ease-in-out;
-}
 .disappear {
   animation: 1s disappear forwards;
 }
@@ -232,5 +221,130 @@ li#collaborate {
   to {
     height: 25%;
     width: 25%;
+  }
+}
+
+.hiding {
+  opacity: 0;
+}
+.fade-in {
+  animation: 1s fade-in linear forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: 1s fade-out linear forwards;
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.show-button {
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  cursor: pointer;
+  color: transparent;
+}
+.show-button:hover {
+  color: #0f8;
+}
+
+.spin-in {
+  width: 0;
+  height: 0;
+  animation: 3s spin linear forwards;
+}
+
+@keyframes spin {
+  10% {
+    transform: rotate(1turn);
+  }
+  20% {
+    transform: rotate(2turn);
+  }
+  30% {
+    transform: rotate(3turn);
+  }
+  40% {
+    transform: rotate(4turn);
+  }
+  50% {
+    transform: rotate(5turn);
+  }
+  60% {
+    transform: rotate(6turn);
+  }
+  70% {
+    transform: rotate(7turn);
+  }
+  80% {
+    transform: rotate(8turn);
+  }
+  90% {
+    transform: rotate(9turn);
+  }
+  to {
+    transform: rotate(10turn);
+    width: 100%;
+    height: auto;
+  }
+}
+
+.slide-up-ready {
+  position: relative;
+  top: 100vh;
+}
+.slide-up-animation {
+  animation: 1s slide-up ease-out forwards;
+}
+@keyframes slide-up {
+  to {
+    top: 0;
+  }
+}
+
+.slide-down {
+  animation: 1s slide-down ease-out forwards;
+}
+@keyframes slide-down {
+  from {
+    margin-top: -100vh;
+  }
+  to {
+    margin-top: 10px;
+  }
+}
+
+.bounce-in {
+  animation: 450ms bounce-in linear forwards;
+}
+@keyframes bounce-in{
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
   }
 }

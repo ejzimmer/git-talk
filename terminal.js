@@ -30,7 +30,7 @@ export default class Terminal {
       
       const actionWithoutArg = Object.keys(this.keyEvents).find(key => action.includes(key));
       if (typeof this.keyEvents[actionWithoutArg] === 'function') {
-        const arg = action.replace(actionWithoutArg);
+        const arg = action.replace(actionWithoutArg, '').replace(' ', '');
         this.keyEvents[actionWithoutArg](arg);
       }
     }

@@ -3,9 +3,6 @@ import Terminal from '../terminal.js';
 export default class HashesController {
 
   constructor () {
-    this.imageContainer = document.querySelector('.images');
-    setTimeout(() => this.imageContainer.style.marginTop = '10px', 100);
-
     this.keyEvents = {
       'git add .': this.gitAdd.bind(this),
       'git hash-object': this.gitHashObject.bind(this),
@@ -19,12 +16,12 @@ export default class HashesController {
   }
 
   gitAdd() {
-    this.createImage('after-add-repo.png');
+    this.show('after-add-repo');
     this.terminal.showPrompt();
   }
 
   gitHashObject() {
-    this.createImage('index-html-in-repo.png');
+    this.show('index-html-in-repo');
     this.terminal.echo('c50eddd41faba2ecc8928e459288fe612b999170');
   }
 
@@ -38,7 +35,7 @@ H�2�в=gT��>V�%`);
   }
 
   gitCatFile() {
-    this.createImage('cat-file.jpeg');
+    this.show('cat-file');
     this.terminal.showPrompt();
   }
 
@@ -60,28 +57,21 @@ Changes to be committed:
   modified:   index.html</span>`);
   }
 
-  createImage(fileName) {
-    const newImage = document.createElement('img');
-    newImage.classList.add('fade-image');
-    newImage.style.opacity = 0;
-    newImage.src = `images/${fileName}`;
+  show(id) {
+    const fadeOutImages = document.querySelectorAll(`img:not([id='${id}'])`);
+    fadeOutImages.forEach(img => img.classList.add('fade-out'));
 
-    this.imageContainer.appendChild(newImage);
-
-    setTimeout(() => {
-      document.querySelectorAll('.images img:not(:last-child)')
-        .forEach(image => {
-          image.style.opacity = 0;
-        });
-      newImage.style.opacity = 1;
-    });
+    document.getElementById(id).classList.add('fade-in');
   }
 
   static getTemplate() {
     return `
       <div class="hashes">
-        <div class="images slide-in">
-          <img class="fade-image" src="images/clean-git-repo.png" />
+        <div class="images">
+          <img class="slide-down" src="images/clean-git-repo.png" />
+          <img id="after-add-repo" class="hiding" src="images/after-add-repo.png" />
+          <img id="index-html-in-repo" class="hiding" src="images/index-html-in-repo.png" />
+          <img id="cat-file" class="hiding" src="images/cat-file.jpeg" />
         </div>
         <div class="terminal"></div>
       </div>`;
