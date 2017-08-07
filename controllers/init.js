@@ -8,38 +8,32 @@ export default class RepoController {
     this.terminal = new Terminal(this.keyEvents);
 
     this.repo = document.getElementById('repo');
-    this.folder = document.getElementById('folder');
+    this.repo.addEventListener('click', this.highlightRepo.bind(this));
+
+    this.directory = document.getElementById('directory');
+    this.directory.addEventListener('click', this.highlightDir.bind(this));
   }
 
   gitInit(event) {
     this.repo.classList.add('bounce-in');
-    document.getElementById('folder').addEventListener('click', this.highlightRepo.bind(this), { once: true });
     document.querySelector('.prompt').contentEditable = false;
   }
 
+  highlightDir(event) {
+    event.stopPropagation();
+    this.directory.classList.add('highlighted');
+  }
 
   highlightRepo(event) {
     event.stopPropagation();
-
-    document.getElementById('repo-label').style.display = 'block';
-    this.repo.classList.add('colour-in');
-
-    this.folder.addEventListener('click', this.highlightWorkingArea.bind(this), { once: true });
-  }
-
-  highlightWorkingArea(event) {
-    event.stopPropagation();
-
-    document.getElementById('folder-label').style.display = 'inline-block';
-    this.folder.classList.add('colour-in');
+    this.directory.classList.add('highlighted');
   }
 
   static getTemplate() {
     return `<div class="terminal"></div>
-            <div class="folder fade-in" id="folder">
-              <div class="folder-label label" id="folder-label">working area</div>
+            <div id="directory" class="directory">
+              <img class="fade-in" src="images/finder.png" />
               <div id="repo" class="repo"></div>
-              <div class="repo-label label" id="repo-label">repository</div>
             </div>`;
   }
 }
