@@ -47,7 +47,11 @@ index.html`);
   }
 
   gitStatus() {
-    document.querySelector('.images').classList.add('disappear');    
+    document.querySelectorAll('.images img')
+      .forEach(img => {
+        img.classList = 'disappear';
+      });    
+
     this.terminal.echo(`
 On branch master
 Changes to be committed:

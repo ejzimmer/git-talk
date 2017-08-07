@@ -45,12 +45,28 @@ export default [
           content: '<img class="spin-in" src="images/initial-commit.png" />'
         },
         {
+          hash: '#working-again',
+          content: `
+            <div class="under-construction">
+              <img src="images/under-construction2.gif" />  
+              <img src="images/under-construction.gif" />          
+              <img src="images/under-construction-java.gif" />
+              <img src="images/under-construction-man.gif" />
+            </div>`
+        },
+        {
           hash: '#second-commit',
           controller: SecondCommitController,
         },
         {
           hash: '#second-commit-diagram',
           content: '<img class="spin-in" src="images/second-commit-diagram.png" />',
+        },
+        {
+          hash: '#cat-video',
+          content: `<video width="100%" controls="controls" autoplay="true">
+                         <source src="images/cat.mp4" type="video/mp4" />
+                    </video>`,
         },
         {
           hash: '#checkout',

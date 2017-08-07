@@ -22,6 +22,7 @@ export default class AddController {
       ls: this.listFiles.bind(this),
       'git status': this.showStatus.bind(this),
       'git add .': this.addFiles.bind(this),
+      'git commit': this.showStatus.bind(this),
     };
 
     this.terminal = new Terminal(this.events);

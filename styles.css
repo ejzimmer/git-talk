@@ -36,10 +36,10 @@ ol {
   margin-left: 50px;
 }
 
-.highlight {
+.highlight:hover {
   border: 2px solid #0f8;
 }
-.highlight-pink {
+.highlight-pink:hover {
   border: 2px solid #f2d;
 }
 
@@ -135,17 +135,12 @@ ol {
   left: -1em;
 }
 
-.label {
-  font-family: 'arial black';
-}
-
 .under-construction img:nth-child(even) {
   width: 60%;
 }
 .under-construction img:nth-child(3n + 1) {
   width: 30%;
 }
-
 
 .hashes {
   display: flex;
@@ -172,13 +167,9 @@ ol {
   animation: 1s disappear forwards;
 }
 @keyframes disappear {
-  from {
-    height: 100%;
-    width: 100%;
-  }
   to {
-    height: 25%;
-    width: 25%;
+    height: 0%;
+    width: 0%;
   }
 }
 
@@ -223,6 +214,7 @@ ol {
   width: 0;
   height: 0;
   animation: 3s spin linear forwards;
+  margin: auto;
 }
 
 @keyframes spin {
@@ -304,4 +296,8 @@ ol {
     opacity: 1;
     transform: scale(1) translate3d(0,0,0);
   }
+}
+
+.disappeared {
+  opacity: 0;
 }
