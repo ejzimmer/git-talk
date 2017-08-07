@@ -26,7 +26,7 @@ export default class RepoController {
 
   highlightRepo(event) {
     event.stopPropagation();
-    this.directory.classList.add('highlighted');
+    this.repo.classList.add('highlighted');
   }
 
   static getTemplate() {

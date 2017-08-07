@@ -19,6 +19,16 @@ export default [
           controller: InitController,
         },
         {
+          hash: '#working',
+          content: `
+            <div class="under-construction">
+              <img src="images/under-construction.gif" />
+              <img src="images/under-construction-man.gif" />
+              <img src="images/under-construction2.gif" />
+              <img src="images/under-construction-java.gif" />
+            </div>`
+        },
+        {
           hash: '#add',
           controller: AddController,
         },
