@@ -60,7 +60,20 @@ export default [
         },
         {
           hash: '#second-commit-diagram',
-          content: '<img class="spin-in" src="images/second-commit-diagram.png" />',
+          controller: class SecondCommitDiagram {
+            constructor() {
+              document.querySelector('img.spin-in').addEventListener('click', (event) => {
+                event.stopPropagation();
+                event.target.style.display = 'none';
+                document.querySelector('.radial-out').classList.add('radiate');
+              }, { once: true })
+            }
+            static getTemplate() {
+              return `
+                <img class="spin-in middle" src="images/second-commit-diagram.png" />
+                <img class="radial-out" src="images/three-commits.png" />`;
+            }
+          },
         },
         {
           hash: '#cat-video',

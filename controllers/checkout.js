@@ -1,5 +1,5 @@
 import Terminal from '../terminal.js';
-//import sha1 from '../node-modules/sha1/sha1.js';
+import sha1 from '../node_modules/sha1/sha1.js';
 
 const seed = 0;
 
@@ -9,7 +9,7 @@ export default class Checkout {
 
     this.files = {
       '.git/HEAD': 'refs/heads/master',
-      '.git/refs/heads/master': '12345',
+      '.git/refs/heads/master': '28fb86e94befa9a40fddfb0e9ee553ffa6fd0',
     };
 
     this.keyEvents = {
@@ -28,7 +28,10 @@ export default class Checkout {
     const currentHash = this.files[`.git/${this.currentBranch}`];
 
     this.files[`.git/refs/heads/${branchName}`] = currentHash;
-    this.files['.git/HEAD'] = branchName;
+    this.files['.git/HEAD'] = `.git/refs/heads/${branchName}`;
+
+    document.getElementById('refs').classList.add('fade-out');
+    document.getElementById('new-branch').classList = 'fade-in';
 
     this.terminal.echo(`Switched to a new branch '${branchName}'`);
   }
@@ -38,15 +41,16 @@ export default class Checkout {
   }
 
   commit() {
-    const nextCommit = sha1(seed++);
-    this.files[`.git/`]
+    this.files[this.currentBranch] = sha1(seed++);
+    this.terminal.showPrompt();
   }
 
   static getTemplate() {
     return `<div class="columns">
               <div class="terminal"></div>
-              <div class="overflow">
+              <div class="overflow images">
                 <img id="refs" src="images/new-branch-head.png" />
+                <img id="new-branch" class="hiding" src="images/new-branch-created.png" />
               </div>
             </div>`;
   }

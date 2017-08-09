@@ -1,13 +1,16 @@
 import Terminal from '../terminal.js';
 
-const hashes = {
-  'index.html': '4b3b4339d3bdd881d8c9fedaa0cdb6d8e4edd987',
-  'config.json': 'd2310568deb2dd2ce0aa678983d33dd6335f60d2'
-};
+const config = `{ "awesomeness": "high" }`;
+const index = `&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;script src="config.json"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;`
 
 const tree = `100644 blob e8957c6d4d357b55c768f222f1743a187424e912	app.css
 100644 blob caba2e66d58bece5ac7b7bcec56d0f5af6df6582	app.js
-100644 blob d2310568deb2dd2ce0aa678983d33dd6335f60d2	config.json
+100644 blob f48f4c18deb2dd2ce0aa678983d33dd6335f60d2	config.json
 100644 blob 4b3b4339d3bdd881d8c9fedaa0cdb6d8e4edd987	index.html`;
 
 const commit = `tree d2310568deb2dd2ce088ac4c83d33dd6335f60d2
@@ -16,6 +19,12 @@ author erinz <erin.zimmer@auspost.com.au> 1501930205 +1000
 committer erinz <erin.zimmer@auspost.com.au> 1501930205 +1000
 
 add config`;
+const catFiles = {
+  'f48f4c1': config,
+  '4b3b433': index,
+  'd231056': tree,
+  'e47b459': commit,
+};
 
 export default class SecondCommitController {
 
@@ -67,10 +76,7 @@ no changes added to commit (use "git add" and/or "git commit -a")`);
   }
 
   catFile(hash) {
-    if (hash === 'e47b459')
-      this.terminal.echo(commit);
-    else 
-      this.terminal.echo(tree);
+    this.terminal.echo(catFiles[hash]);
   }
 
   cat() {

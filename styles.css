@@ -214,6 +214,8 @@ ol {
   width: 0;
   height: 0;
   animation: 3s spin linear forwards;
+}
+.middle {
   margin: auto;
 }
 
@@ -282,4 +284,28 @@ ol {
 .columns .overflow {
   width: 25%;
   overflow: hidden;
+}
+
+.radial-out {
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: auto;
+}
+.radiate {
+  animation: 2s radiate linear forwards;
+}
+@keyframes radiate {
+  50% {
+    border-radius: 50%;
+  }
+  80% {
+    width: 100%;
+    height: 100%;
+  }
+  to {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
