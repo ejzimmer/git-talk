@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body>
+  <input />
+  <script>
+    window.onbeforeunload = () => {
+      return 'message';
+    }
+    window.onunload = (event) => {
+      console.dir(event);
+    }
+  </script>
+</body>

@@ -218,33 +218,6 @@ ol {
 }
 
 @keyframes spin {
-  10% {
-    transform: rotate(1turn);
-  }
-  20% {
-    transform: rotate(2turn);
-  }
-  30% {
-    transform: rotate(3turn);
-  }
-  40% {
-    transform: rotate(4turn);
-  }
-  50% {
-    transform: rotate(5turn);
-  }
-  60% {
-    transform: rotate(6turn);
-  }
-  70% {
-    transform: rotate(7turn);
-  }
-  80% {
-    transform: rotate(8turn);
-  }
-  90% {
-    transform: rotate(9turn);
-  }
   to {
     transform: rotate(10turn);
     width: 100%;
@@ -300,4 +273,13 @@ ol {
 
 .disappeared {
   opacity: 0;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+.columns .overflow {
+  width: 25%;
+  overflow: hidden;
 }
