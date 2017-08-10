@@ -311,3 +311,73 @@ ol {
     height: 100%;
   }
 }
+
+.commit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 10px #f2d;
+  background-color: #0f8;
+  position: relative;
+  margin-right: 50px;
+  transform: rotate(90deg);
+  margin-top: 50px;
+}
+
+.commit.reverse-commit {
+  border-color: #0f8;
+  background-color: #f2d;
+}
+
+.commit.reverse-commit::before, .commit.reverse-commit::after {
+  background-color: #0f8;
+}
+
+.commit::before, .commit::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  background-color: #f2d;
+  top: calc(50% - 5px);
+}
+
+.commit::before {
+  left: -39px;
+}
+.commit::after {
+  right: -39px;
+}
+
+.fast-forward {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  grid-gap: 0;
+  width: 100%;
+}
+
+.ref {
+  display: flex;
+  align-items: flex-end;
+}
+.ref.left {
+  justify-content: flex-end;
+}
+.ref.right {
+  justify-content: flex-start;
+}
+
+#master {
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+#feature {
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+.head {
+  border: 2px solid #0f8;
+}
+

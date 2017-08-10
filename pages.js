@@ -4,6 +4,8 @@ import HashesController from './controllers/hashes.js';
 import CommitController from './controllers/commit.js';
 import SecondCommitController from './controllers/second-commit.js';
 import CheckoutController from './controllers/checkout.js';
+import FastForwardController from './controllers/fast-forward.js';
+import MergeController from './controllers/merge.js';
 
 export default [
         {
@@ -83,6 +85,14 @@ export default [
         {
           hash: '#checkout',
           controller: CheckoutController,
+        },
+        {
+          hash: '#fast-forward',
+          controller: FastForwardController,
+        },
+        {
+          hash: '#merge',
+          controller: MergeController,
         },
         {
           hash: '#merge',

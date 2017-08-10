@@ -9,13 +9,13 @@ export default class Terminal {
   }
 
   showPrompt() {
-    const prompt = document.createElement('div');
-    prompt.classList.add('prompt');
-    prompt.contentEditable = true;
-    prompt.addEventListener('keypress', this.handleKeyPress.bind(this)); 
+    this.prompt = document.createElement('div');
+    this.prompt.classList.add('prompt');
+    this.prompt.contentEditable = true;
+    this.prompt.addEventListener('keypress', this.handleKeyPress.bind(this)); 
     
-    this.terminal.appendChild(prompt);
-    prompt.focus();
+    this.terminal.appendChild(this.prompt);
+    this.prompt.focus();
   }
 
   handleKeyPress(event) {
@@ -36,7 +36,6 @@ export default class Terminal {
     }
   }
 
-
   echo(contents) {
     const responseElement = document.createElement('pre');
     responseElement.classList.add('response');
@@ -44,5 +43,9 @@ export default class Terminal {
 
     this.terminal.appendChild(responseElement);
     this.showPrompt();
+  }
+
+  clear() {
+    this.prompt.innerHTML = '';
   }
 }
