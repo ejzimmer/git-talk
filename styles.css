@@ -330,7 +330,7 @@ ol {
 }
 
 .commit.reverse-commit::before, .commit.reverse-commit::after {
-  background-color: #0f8;
+  background-color: #0f8
 }
 
 .commit::before, .commit::after {
@@ -381,3 +381,14 @@ ol {
   border: 2px solid #0f8;
 }
 
+.merge {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.merge img {
+  position: absolute;
+  top: 50px;
+  left: 30%;
+}
