@@ -83,5 +83,15 @@ export default [
         {
           hash: '#checkout',
           controller: CheckoutController,
-        }
+        },
+        {
+          hash: '#merge',
+          content: `<pre>tree edb941a7808b2114a11e4a4bc25dba0706c530cc
+parent aaac3c902a4c8b2cd3178def499cc21b664c5172
+parent 4d4d91de11a5e679e9d7db5c19135d629ca21223
+author erinz <erin.zimmer@auspost.com.au> 1502360584 +1000
+committer erinz <erin.zimmer@auspost.com.au> 1502360584 +1000
+
+Merge branch 'feature'</pre>`
+        },
       ]; 

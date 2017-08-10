@@ -1,7 +1,7 @@
 import Terminal from '../terminal.js';
 import sha1 from '../node_modules/sha1/sha1.js';
 
-const seed = 0;
+let seed = 0;
 
 export default class Checkout {
 
@@ -13,13 +13,19 @@ export default class Checkout {
     };
 
     this.keyEvents = {
+      'touch': this.touch.bind(this),
       'git checkout -b': this.newBranch.bind(this),
+      'git checkout': this.checkout.bind(this),
       'git commit': this.commit.bind(this),
       'cat': this.cat.bind(this),
-      'touch': this.touch.bind(this),
       'git merge': this.merge.bind(this),
+      'git add': this.doNothing.bind(this),
     };
     this.terminal = new Terminal(this.keyEvents);
+  }
+
+  doNothing() {
+    this.terminal.showPrompt();
   }
 
   get currentBranch() {
@@ -27,14 +33,17 @@ export default class Checkout {
   }
 
   getHead(branch) {
-    return this.files[`.git/refs/heads/${branch}`].substring(0, 7);
+   return this.getLongHead(branch).substring(0, 7);
+  }
+  getLongHead(branch) {
+    return this.files[`.git/refs/heads/${branch}`];
   }
 
   newBranch(branchName) {
     const currentHash = this.files[`.git/${this.currentBranch}`];
 
     this.files[`.git/refs/heads/${branchName}`] = currentHash;
-    this.files['.git/HEAD'] = `.git/refs/heads/${branchName}`;
+    this.files['.git/HEAD'] = `refs/heads/${branchName}`;
 
     document.getElementById('master').classList.add('fade-out');
     document.getElementById('new-branch').classList = 'fade-in';
@@ -43,35 +52,44 @@ export default class Checkout {
   }
 
   cat(fileName) {
-    this.terminal.echo(this.files[fileName]);
+    this.terminal.echo(`<span class="highlight-pink">${this.files[fileName]}</span>`);
   }
 
   commit() {
-    this.files[this.currentBranch] = sha1(seed++);
-    this.terminal.showPrompt();
+    this.files[`.git/${this.currentBranch}`] = sha1(seed++);
+    this.terminal.echo(`[feature <span class="highlight">${this.files[`.git/${this.currentBranch}`].substring(0, 7)}</span>] new gif
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cat.gif`)
   }
 
   touch(fileName) {
     this.createdFile = fileName;
-    this.show('master');
+    this.show('feature');
     this.terminal.showPrompt();
   }
 
   checkout(branch) {
     this.show(branch);
+    this.files['.git/HEAD'] = `refs/heads/${branch}`;
     this.terminal.echo(`Switched to branch '${branch}'`);
   }
 
   merge(branch) {
+    this.show(branch);
     this.terminal.echo(`Updating ${this.getHead('master')}..${this.getHead(branch)}
-Fast-forward
+<span class="highlight-pink">Fast-forward</span>
  ${this.createdFile} | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 ${this.createdFile}`)
+    this.files['.git/refs/heads/master'] = this.getLongHead(branch);
   }
 
   show(image) {
-    document.querySelector('not(.hiding)').classList.add('fade-out hiding');
+    document.querySelectorAll('img:not(.hiding)').forEach(img => {
+      img.classList.add('fade-out');
+      img.classList.add('hiding');
+    });
+
     document.getElementById(image).classList = 'fade-in';
   }
 

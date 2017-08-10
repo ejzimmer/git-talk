@@ -284,6 +284,8 @@ ol {
 .columns .overflow {
   width: 25%;
   overflow: hidden;
+  position: fixed;
+  right: 0;
 }
 
 .radial-out {
