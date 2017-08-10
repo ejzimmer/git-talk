@@ -1,4 +1,3 @@
-import SourceControlController from './controllers/source-control.js';
 import InitController from './controllers/init.js';
 import AddController from './controllers/add.js';
 import HashesController from './controllers/hashes.js';
