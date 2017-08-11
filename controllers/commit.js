@@ -28,9 +28,9 @@ export default class CommitController {
 
     if (hash === 'e40ce52') {
       this.terminal.echo(`
-100644 blob e8957c6d4d357b55c768f222f1743a187424e912	app.css
+100644 blob c50eddd41faba2ecc8928e459288fe612b999170	app.css
 100644 blob 26b94195ea03b8d29a6e65e2d1c8704b933d5117	app.js
-100644 blob c50eddd41faba2ecc8928e459288fe612b999170	index.html
+100644 blob e8957c6d4d357b55c768f222f1743a187424e912	index.html 
       `);
     } else if (hash === '28fb86e') {
       this.terminal.echo(`
@@ -52,16 +52,16 @@ initial commit`);
   }
 
   slideImageIn(id) {
-    document.getElementById(id).classList.add('slide-up-animation');
+    document.getElementById(id).classList.add('slide-left');
   }
 
   static getTemplate() {
     return `
-    <div>
+    <div class="columns">
       <div class="terminal"></div>
-      <div id="images" class="images">
-        <img id="after-commit" class="slide-up-ready" src="images/after-commit.png" />
-        <img id="refs" class="slide-up-ready" src="images/refs.png" />
+      <div id="images" class="images overflow large">
+        <img id="after-commit" class="slide-left-ready" src="images/after-commit.png" />
+        <img id="refs" class="slide-left-ready" src="images/refs.png" />
       </div>
     </div>  
     <button class="show-button" id="show-pic-button">+</button>`;

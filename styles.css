@@ -142,17 +142,6 @@ ol {
   width: 30%;
 }
 
-.hashes {
-  display: flex;
-  flex-direction: column;
-  max-height: 100vh;
-  overflow-y: hidden;
-}
-
-.hashes .terminal {
-  flex: 1 1 auto;
-  overflow-y: auto;
-}
 
 .images {
   position: relative;
@@ -214,6 +203,7 @@ ol {
   width: 0;
   height: 0;
   animation: 3s spin linear forwards;
+  margin: auto;
 }
 .middle {
   margin: auto;
@@ -227,27 +217,18 @@ ol {
   }
 }
 
-.slide-up-ready {
-  margin-top: 100vh;
+.slide-left-ready {
+  margin-left: 100vw;
 }
-.slide-up-animation {
-  animation: 1s slide-up ease-out forwards;
+.slide-left {
+  animation: 1s slide-left ease-out forwards;
 }
-@keyframes slide-up {
-  to {
-    margin-top: 0;
-  }
-}
-
-.slide-down {
-  animation: 1s slide-down ease-out forwards;
-}
-@keyframes slide-down {
+@keyframes slide-left {
   from {
-    margin-top: -100vh;
+    margin-left: 450px;
   }
   to {
-    margin-top: 10px;
+    margin-left: 10px;
   }
 }
 
@@ -286,6 +267,9 @@ ol {
   overflow: hidden;
   position: fixed;
   right: 0;
+}
+.columns .overflow.large {
+  width: 450px;
 }
 
 .radial-out {
