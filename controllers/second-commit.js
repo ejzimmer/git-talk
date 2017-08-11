@@ -8,8 +8,8 @@ const index = `&lt;!doctype html&gt;
 &lt;/body&gt;
 &lt;/html&gt;`
 
-const tree = `100644 blob e8957c6d4d357b55c768f222f1743a187424e912	app.css
-100644 blob caba2e66d58bece5ac7b7bcec56d0f5af6df6582	app.js
+const tree = `100644 blob c50eddd41faba2ecc8928e459288fe612b999170	app.css
+100644 blob 26b94195ea03b8d29a6e65e2d1c8704b933d5117	app.js
 100644 blob f48f4c18deb2dd2ce0aa678983d33dd6335f60d2	config.json
 100644 blob 4b3b4339d3bdd881d8c9fedaa0cdb6d8e4edd987	index.html`;
 
@@ -44,7 +44,7 @@ export default class SecondCommitController {
   ls() {
     this.terminal.echo(`app.css
 app.js
-config.json
+<span class="highlight">config.json</span>
 index.html`);
   }
 
@@ -85,9 +85,11 @@ no changes added to commit (use "git add" and/or "git commit -a")`);
 
 
   static getTemplate() {
-    return `<div class="terminal"></div>
-            <div class="images">
-              <img class="disappeared" src="images/second-commit.png" />
+    return `<div class="columns">
+              <div class="terminal"></div>
+              <div class="images overflow large">
+                <img class="disappeared" src="images/second-commit.png" />
+              </div>
             </div>`;
   }
 }
