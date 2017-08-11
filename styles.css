@@ -391,3 +391,19 @@ ol {
 .thunder {
   animation: 1s flicker linear forwards;
 }
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  font-size: 2em;
+  font-family: Courier New, Courier, monospace;
+  color: #ddd;
+}
+
+.highlighted {
+  border: 2px solid #0f8;
+}

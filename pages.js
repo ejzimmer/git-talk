@@ -8,6 +8,7 @@ import FastForwardController from './controllers/fast-forward.js';
 import MergeController from './controllers/merge.js';
 import DetachedHeadController from './controllers/detached-head.js';
 import ResetController from './controllers/reset.js';
+import ResetTypesController from './controllers/reset-types.js';
 
 export default [
         {
@@ -107,5 +108,22 @@ export default [
         {
           hash: '#reset',
           controller: ResetController,
+        },
+        {
+          hash: '#reset-types',
+          controller: ResetTypesController,
+        },
+        {
+          hash: '#commands',
+          content: `<pre class="terminal">
+<span class="untracked-files">git ls-files
+git cat-file
+git hash-object</span>
+git status
+git add
+git commit
+git reset
+git checkout
+</pre>`,
         },
       ]; 
