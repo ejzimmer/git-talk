@@ -376,3 +376,9 @@ ol {
   top: 50px;
   left: 30%;
 }
+
+.emoji {
+  margin: auto;
+  font-size: 3em;
+   animation: 5s fade-in linear forwards; 
+}

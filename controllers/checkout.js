@@ -9,7 +9,7 @@ export default class Checkout {
 
     this.files = {
       '.git/HEAD': 'refs/heads/master',
-      '.git/refs/heads/master': '28fb86e94befa9a40fddfb0e9ee553ffa6fd0',
+      '.git/refs/heads/master': 'e47b4596ba0374e87fd88c2fc46bc4c461e3e383',
     };
 
     this.keyEvents = {
@@ -45,8 +45,8 @@ export default class Checkout {
     this.files[`.git/refs/heads/${branchName}`] = currentHash;
     this.files['.git/HEAD'] = `refs/heads/${branchName}`;
 
-    document.getElementById('master').classList.add('fade-out');
-    document.getElementById('new-branch').classList = 'fade-in';
+    document.getElementById('start').classList.add('fade-out');
+    document.getElementById('master').classList = 'fade-in';
 
     this.terminal.echo(`Switched to a new branch '${branchName}'`);
   }
@@ -76,7 +76,7 @@ export default class Checkout {
 
   merge(branch) {
     this.show(branch);
-    this.terminal.echo(`Updating ${this.getHead('master')}..${this.getHead(branch)}
+    this.terminal.echo(`Updating <span class="highlight">${this.getHead('master')}..${this.getHead(branch)}</span>
 <span class="highlight-pink">Fast-forward</span>
  ${this.createdFile} | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
@@ -97,8 +97,8 @@ export default class Checkout {
     return `<div class="columns">
               <div class="terminal"></div>
               <div class="overflow images">
-                <img id="master" src="images/new-branch-head.png" />
-                <img id="new-branch" class="hiding" src="images/new-branch-created.png" />
+                <img id="start" src="images/new-branch-head.png" />
+                <img id="master" class="hiding" src="images/new-branch-created.png" />
                 <img id="feature" class="hiding" src="images/new-file-added.png" />
               </div>
             </div>`;

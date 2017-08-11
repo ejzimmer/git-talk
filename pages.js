@@ -94,4 +94,8 @@ export default [
           hash: '#merge',
           controller: MergeController,
         },
+        {
+          hash: '#sad',
+          content: '<div class="emoji">😞</div>',
+        }
       ]; 

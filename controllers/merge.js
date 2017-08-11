@@ -1,4 +1,4 @@
-const images = ['branches', 'common', 'merged'];
+const images = ['branches', 'common', 'magic', 'merged'];
 
 export default class MergeController {
 
@@ -37,6 +37,7 @@ Merge branch 'feature'</pre>`
     <div class="merge">
       <img id="branches" src="images/branches.png" />
       <img id="common" class="hiding" src="images/last-common-ancestor.png" />
+      <img id="magic" class="hiding" src="images/magic.gif" />
       <img id="merged" class="hiding" src="images/merged.png" />
     </div>`;
   }
