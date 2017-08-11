@@ -9,6 +9,7 @@ import MergeController from './controllers/merge.js';
 import DetachedHeadController from './controllers/detached-head.js';
 import ResetController from './controllers/reset.js';
 import ResetTypesController from './controllers/reset-types.js';
+import SummaryController from './controllers/summary.js';
 
 export default [
         {
@@ -114,6 +115,10 @@ export default [
           controller: ResetTypesController,
         },
         {
+          hash: '#summary',
+          controller: SummaryController,
+        },
+        {
           hash: '#commands',
           content: `<pre class="terminal">
 <span class="untracked-files">git ls-files
@@ -122,6 +127,7 @@ git hash-object</span>
 git status
 git add
 git commit
+git log
 git reset
 git checkout
 </pre>`,

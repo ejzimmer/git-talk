@@ -6,6 +6,7 @@ export default class ResetController {
       'git log --oneline': this.log.bind(this),
       'git reset': this.reset.bind(this),
       'git status': this.status.bind(this),
+      'cat': this.cat.bind(this),
     };
     this.terminal = new Terminal(this.keyEvents);
   }
@@ -39,6 +40,10 @@ Untracked files:
 	<span class="untracked-files">stupid-mistake.xml</span>
 
 no changes added to commit (use "git add" and/or "git commit -a")`)
+  }
+
+  cat() {
+    this.terminal.echo(`182e8991b583a56a52e2aacc66070b537a152dc5`);
   }
 
   static getTemplate() {

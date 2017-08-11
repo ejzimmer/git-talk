@@ -50,7 +50,7 @@ Working Area:
 
   highlight(element) {
     document.querySelectorAll('button').forEach(button => button.classList.remove('highlighted'));
-    element.classList.add('highlighted');
+    element.classList.add('highlight-border');
   }
 
   static getTemplate() {

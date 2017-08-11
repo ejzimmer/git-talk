@@ -404,6 +404,6 @@ button {
   color: #ddd;
 }
 
-.highlighted {
+.highlight-border {
   border: 2px solid #0f8;
 }
