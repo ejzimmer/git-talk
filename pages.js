@@ -6,6 +6,8 @@ import SecondCommitController from './controllers/second-commit.js';
 import CheckoutController from './controllers/checkout.js';
 import FastForwardController from './controllers/fast-forward.js';
 import MergeController from './controllers/merge.js';
+import DetachedHeadController from './controllers/detached-head.js';
+import ResetController from './controllers/reset.js';
 
 export default [
         {
@@ -97,5 +99,13 @@ export default [
         {
           hash: '#sad',
           content: '<div class="emoji">😞</div>',
-        }
+        },
+        {
+          hash: '#detached',
+          controller: DetachedHeadController,
+        },
+        {
+          hash: '#reset',
+          controller: ResetController,
+        },
       ]; 
